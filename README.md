@@ -68,7 +68,8 @@ ssh-copy-id ubuntu@<remote_server_ip>
 Run command:
 
 ```bash
-ansible-playbook -i inventory playbook.yml
+ansible-playbook -i inventory playbook.yml --ask-become-pass
+
 ```
 
 
