@@ -20,6 +20,24 @@ A list of other roles hosted on Galaxy should go here, plus any details in regar
 
 ## How to run this role
 
+### Create playbook.yml in control host
+Example yaml file: 
+
+```bash
+---
+- hosts: all
+  become: true
+  roles:
+    - waseralkarim.speedtest
+```
+### Create inventory file
+Example inventory file:
+
+```bash
+[all]
+<remote_server_ip> ansible_user=ubuntu
+```
+
 ### Generate SSH Key on Your Control Node (if not already)
 
 If you haven't already done this on your Ansible **control machine (your Ubuntu system)**:
