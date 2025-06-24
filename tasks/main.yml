@@ -1,0 +1,28 @@
+---
+# tasks file for speedtest
+- name: Install snapd
+  apt:
+    name: snapd
+    state: present
+    update_cache: yes
+
+- name: Ensure snapd is running
+  systemd:
+    name: snapd
+    state: started
+    enabled: yes
+
+- name: Install speedtest via snap (official from Ookla)
+  community.general.snap:
+    name: "{{ speedtest_package_name }}"
+    classic: "{{ speedtest_use_classic }}"
+
+- name: Run speedtest with license and GDPR acceptance
+  command: "{{ speedtest_command }}"
+  register: speedtest_output
+  ignore_errors: yes
+
+- name: Show speedtest result
+  debug:
+    msg: "{{ speedtest_output.stdout.split('\n') }}"
+

@@ -1,0 +1,6 @@
+---
+# defaults file for speedtest
+speedtest_package_name: speedtest
+speedtest_use_classic: true
+speedtest_command: "speedtest --accept-license --accept-gdpr"
+
